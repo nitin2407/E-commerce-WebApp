@@ -10,8 +10,6 @@
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
-	
-	$added_by = $_SESSION['pmId'];
 	move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "upload/".$_FILES["fileToUpload"]["name"]);
 	$name=$_POST['name'];
 	$category_name = $_POST['category_name'];
@@ -21,12 +19,11 @@
 	$Supplier_id=$_POST['Supplier_id'];
 	$fileToUpload=$_FILES["fileToUpload"]["name"];
 	
-	$sql = "INSERT INTO Product (name, product_id, description, price, image, Category_name, added_by, Supplier_id)
-	VALUES ('$name', '$product_id', '$description', '$price',  '$fileToUpload', '$category_name', '$added_by' ,'$Supplier_id');";
+	$sql = "INSERT INTO Product (name, product_id, description, price, image, Category_name, Supplier_id)
+	VALUES ('$name', '$product_id', '$description', '$price',  '$fileToUpload', '$category_name', '$Supplier_id');";
 	$id=$row['id'];
 	if(!empty($_POST['submit'])) {
 		if ($conn->query($sql) === TRUE) {
-			echo "Your product was successfully added!";
 	}
 	header("Location: product_management.php");
 	}

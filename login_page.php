@@ -38,7 +38,7 @@ $result = mysqli_query($conn, $sql);
 	$_SESSION['pmId'] = $email;
     header('Location: product_management.php');
    }
-   else if($_SESSION['sess_userrole'] == "customer"){
+   else if($_SESSION['sess_userrole'] == "Customer"){
 	   $_SESSION['userId'] = $email;
 	   $_SESSION['fname'] = $row['fname'];
       header('Location: user.php');

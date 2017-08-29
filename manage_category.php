@@ -144,8 +144,8 @@ echo "<tr><th>Categories</th></tr>";
 								echo "<tr class='table-row'>";
 								$category = $row['name'];
 								echo "<td>" . $category .  "</td>";
-								echo "<td><a href='#'>Edit</a></td>";
-								echo "<td><a href='#'>Delete</a></td>";
+								echo "<td><a href='edit_category.php?id=" . $row['id'] .'&name='.$row['name']."'>Edit</a></td>";
+								echo "<td><a href='delete_category.php?id=" . $row['id'] ."'>Delete</a></td>";
 							
 							}
 							echo"</table>";

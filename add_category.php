@@ -17,15 +17,14 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
 	die("Connection failed: " . $conn->connect_error);
 }
-$added_by = $_SESSION['pmId'];
 if(!empty($_POST['submit'])){
 	
 	$categoryname = $_POST['categoryname'];
 	$categoryid = $_POST['categoryid'];
-	$sql = "INSERT INTO Category (name, category_id, added_by)
-	VALUES ('$categoryname', '$categoryid', '$added_by');";
+	$sql = "INSERT INTO Category (name, category_id)
+	VALUES ('$categoryname', '$categoryid');";
 	if ($conn->query($sql) === TRUE) {
-		echo "Your category was successfully added!";}
+		echo "";}
 	
 }
 ?>
